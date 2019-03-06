@@ -1,0 +1,7 @@
+create a dir and touch  main.tf variables.tf terraform.tfvars
+------------------
+main.tf-- main file where we write our code or all the actions happened
+now "main.tf" files pulls the variable from variables.tf which pulls there values from terraform.tfvars
+variables.tf----> it will have empty variable and terraform.tfvars-- just poppulate those variable
+terraform.tfvars--> make sure when you create git repository, you always put your tfvars in git the ignore 
+----------------
