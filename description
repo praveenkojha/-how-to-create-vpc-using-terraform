@@ -1,4 +1,4 @@
-create a dir and touch  main.tf variables.tf terraform.tfvars
+create a dir with touch  main.tf variables.tf terraform.tfvars
 ------------------
 main.tf-- main file where we write our code or all the actions happened
 now "main.tf" files pulls the variable from variables.tf which pulls there values from terraform.tfvars
