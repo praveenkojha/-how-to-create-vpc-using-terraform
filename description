@@ -5,3 +5,8 @@ now "main.tf" files pulls the variable from variables.tf which pulls there value
 variables.tf----> it will have empty variable and terraform.tfvars-- just poppulate those variable
 terraform.tfvars--> make sure when you create git repository, you always put your tfvars in git the ignore 
 ----------------
+we will create :
+vpc
+IGW
+RT
+Subnet- 7 subnet 2public/2private/3rds
