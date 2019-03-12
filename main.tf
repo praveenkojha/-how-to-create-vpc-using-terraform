@@ -121,3 +121,42 @@ tags {
   Name = "wp_rds3"
  }
 }
+
+#--- VPC Endpoint for s3 -----
+
+resource "aws_vpc_endpoint" "wp_private-s3_endpoint" {
+  vpc_id = "${aws_vpc.wp_vpc.id}"
+# we are accessing the s3 bucket and choosing which region to access it from
+  service_name = "com.amazonaws.${var.aws_region}.s3"
+
+  route_table_ids = ["${aws_vpc.wp_vpc.main_route_table_id}",
+    "${aws_route_table.wp_public_rt.id}",
+]
+  policy = <<POLICY
+{
+   "Statement": [
+        {
+          "Action": "*",
+          "Effect": "Allow",
+          "Resource": "*",
+          "Principal": "*"
+        }
+     ]
+}
+
+#------- S3 Code Bucket ----------
+
+resource "random_id" "wp_code_bucket" {
+  byte_lenght = 2
+}
+
+resource "aws_s3_bucket" "code" {
+  bucket = "${var.domain_name}_${random_id.wp_code_bucket.dec}"
+  acl = "private"
+  force_destroy  = true
+
+  tags {
+   Name = "code bucket-000001"
+ }
+}
+
