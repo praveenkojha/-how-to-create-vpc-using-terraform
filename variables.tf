@@ -8,3 +8,4 @@ variable "cidrs" {
   type = "map"
 }
 
+variable "domain_name" {}
