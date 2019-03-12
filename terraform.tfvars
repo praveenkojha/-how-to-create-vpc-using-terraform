@@ -14,3 +14,6 @@ cidrs       = {
   rds3     = "10.0.7.0/24"
 }
 
+
+domain_name = "your-domain.com"
+
